@@ -1,0 +1,59 @@
+#tabela-periodica{
+    display: inline-block;
+}
+#elemento-sorteado{
+    display: inline-block;
+    margin: 0 auto;
+    
+}
+#h{
+    margin-right: 865px;
+}
+#be, #mg{
+    margin-right: 540px;
+}
+.elemento{
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+    color: transparent;
+}
+
+.periodo{
+    display: block;
+    margin: 5px;
+}
+
+.nao-metais{
+    background-color: rgb(139, 255, 82);
+}
+.metais-alcalinos{
+    background-color: rgb(250, 200, 0);
+}
+.metais-alcalinos-terrosos{
+    background-color: rgb(251, 255, 1);
+}
+.lantanoides{
+    background-color: rgb(102, 0, 48);
+}
+.actinoides{
+    background-color: #bc60ee;
+}
+.metais-de-transicao{
+    background-color: rgb(255, 99, 71);
+}
+.semimetais{
+    background-color: rgb(5, 255, 247);
+}
+.gases-nobres{
+    background-color: rgb(29, 95, 226);
+}
+.metais-representativos{
+    background-color: blue;
+}
+.halogenios{
+    background-color: #1fff9a;
+}
+#actinoides-id, #lantanoides-id{
+    margin-left: 100px;
+}

@@ -4,32 +4,38 @@ const simbolosQuimicos = [
     "Sb","Te","I","Xe","Cs","Ba","La","Ce","Pr","Nd","Pm","Sm","Eu","Gd","Tb","Dy","Ho","Er","Tm","Yb","Lu","Hf","Ta","W",
     "Re","Os","Ir","Pt","Au","Hg","Tl","Pb","Bi","Po","At","Rn","Fr","Ra","Ac","Th","Pa","U","Np","Pu","Am","Cm","Bk","Cf",
     "Es","Fm","Md","No","Lr","Rf","Db","Sg","Bh","Hs","Mt","Ds","Rg","Cn","Nh","Fl","Mc","Lv","Ts","Og"
-  ]
-var elementoRandomico = simbolosQuimicos[Math.floor(Math.random()*simbolosQuimicos.length)]
+]
+const simbolosQuimicosSorteados = []
 
-const campo = document.getElementById('elemento-sorteado')
-const subCampo = campo.querySelector('p')
-subCampo.innerHTML = elementoRandomico
-
-
-const elementos = document.getElementsByClassName('elemento')
-function handleClick(event) {
-    if(elementoRandomico==event.target.textContent.trim()){
-        console.log('acertou')
-        event.target.style.color = 'black'
-    }
-}
-  
-  // Adicionar o evento de clique a todos os elementos usando forEach
-  Array.from(elementos).forEach(elemento => {
-    elemento.addEventListener('click', handleClick);
-  });
-
-
-const novoElementoBtn = document.getElementById('novo-elemento-btn')
-novoElementoBtn.addEventListener('click', (event)=>{
-    event.preventDefault();
+function sortearNovoElemento(){
+  if(simbolosQuimicos.length == simbolosQuimicosSorteados.length){
+    
+    return ("Todos os elementos já foram sorteados")
+  }
+  var elementoRandomico = simbolosQuimicos[Math.floor(Math.random()*simbolosQuimicos.length)]
+  while(simbolosQuimicosSorteados.includes(elementoRandomico)){
     elementoRandomico = simbolosQuimicos[Math.floor(Math.random()*simbolosQuimicos.length)]
-    console.log(elementoRandomico)
-    subCampo.innerHTML = elementoRandomico
+  }
+  return elementoRandomico
+}
+
+var retornoSorteio = '';
+const elementos = document.getElementsByClassName('elemento')
+for(var i = 0; i<elementos.length; i++){
+  elementos[i].addEventListener('click', (event)=>{
+    if(event.target.textContent.trim()===retornoSorteio){
+      event.target.style.color = 'black'
+      simbolosQuimicosSorteados.push(retornoSorteio)
+    }
+  })
+}
+const btnNovoElemento = document.getElementById('novo-elemento-btn')
+btnNovoElemento.addEventListener('click', (event)=>{
+  event.preventDefault()
+  retornoSorteio = sortearNovoElemento()
+  if(retornoSorteio.length>10){
+    btnNovoElemento.style.display = 'none'
+  }
+  const divElementoSorteado = document.getElementById('elemento-sorteado')
+  divElementoSorteado.querySelector('p').innerHTML = retornoSorteio
 })

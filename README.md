@@ -1,3 +1,3 @@
 # tabela-periodica
 
-This project consist in a game where you need to know where is positioned each element in the periodic table.
+This project consists of a game where you need to know where each element is positioned in the periodic table.

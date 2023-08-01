@@ -1,4 +1,4 @@
-#tabela-periodica{
+#parte-principal{
     display: flex;
     flex-direction: row;
     align-items: flex-end;
@@ -57,6 +57,6 @@
     background-color: #1fff9a;
 }
 #actinoides, #lantanoides{
-    margin-left: 65px;
+    margin-left: 70px;
     display: flex;
 }

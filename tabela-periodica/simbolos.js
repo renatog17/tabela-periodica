@@ -117,36 +117,41 @@ const elementosQuimicos = [
   { simbolo: "Lv", familia: 16, grupo: 'metais-representativos' },
   { simbolo: "Ts", familia: 17, grupo: 'metais-representativos' },
   { simbolo: "Og", familia: 18, grupo: 'gases-nobres' },
+  
+  { simbolo: "57-71", familia:3, grupo:'lantanoides' },
+  { simbolo: "89-103", familia: 3, grupo: 'actinoides' },
 ];
 
-console.log(elementosQuimicos);
-
-const tabelaPeriodoca = document.getElementById("tabela-periodica")
-for(i = 0; i<18;i++){
-  const novaDivFamilia = document.createElement('div')
-  novaDivFamilia.classList.add('familia')
-  novaDivFamilia.id = i+1
-  tabelaPeriodoca.appendChild(novaDivFamilia)
+function criarDivFamilias(tabelaPeriodoca){
+  for(i = 0; i<18;i++){
+    const novaDivFamilia = document.createElement('div')
+    novaDivFamilia.classList.add('familia')
+    novaDivFamilia.id = i+1
+    tabelaPeriodoca.appendChild(novaDivFamilia)
+  }
 }
-const novaDivFamiliaL = document.createElement('div')
-novaDivFamiliaL.classList.add('lantanoides')
-novaDivFamiliaL.id = 'lantanoides'
-const novaDivFamiliaA = document.createElement('div')
-novaDivFamiliaA.classList.add('actinoides')
-novaDivFamiliaA.id = 'actinoides'
-const lantanoides = document.getElementById("lantanoides")
-const actinoides = document.getElementById("actinoides")
-lantanoides.appendChild(novaDivFamiliaL)
-actinoides.appendChild(novaDivFamiliaA)
+function criarDivElementosAParte(elementosAparte){
+  const novaDivFamilia = document.createElement('div')
+  novaDivFamilia.classList.add(elementosAparte)
+  novaDivFamilia.id = elementosAparte
+  const familiaAParte = document.getElementById(elementosAparte)
+  familiaAParte.appendChild(novaDivFamilia)
+}
+
+
+//
+const tabelaPeriodoca = document.getElementById("parte-principal")
+criarDivFamilias(tabelaPeriodoca)
+criarDivElementosAParte('lantanoides')
+criarDivElementosAParte('actinoides')
+
 
 for(var i= 0;i<elementosQuimicos.length; i++){
   const novaDivElemento = document.createElement('div')
   novaDivElemento.innerHTML = elementosQuimicos[i].simbolo
   novaDivElemento.classList.add('elemento')
-  
     novaDivElemento.classList.add(elementosQuimicos[i].grupo)
     const familia = document.getElementById(elementosQuimicos[i].familia)
     console.log(familia)
     familia.appendChild(novaDivElemento)
-  
 }

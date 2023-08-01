@@ -1,3 +1,5 @@
 # Periodic Table Mini Game
 
-This project consists of a game where you need to know where each element is positioned in the periodic table.
+this project consists of a mini game where the player needs to guess where the elements of the periodic table are positioned from the chemical symbol of the element.
+
+![image](https://github.com/renatog17/tabela-periodica/assets/54106116/f41db83a-0445-45ee-bf5f-9d458c991a94)

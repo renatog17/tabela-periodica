@@ -117,10 +117,11 @@ const elementosQuimicos = [
   { simbolo: "Lv", familia: 16, grupo: 'metais-representativos' },
   { simbolo: "Ts", familia: 17, grupo: 'metais-representativos' },
   { simbolo: "Og", familia: 18, grupo: 'gases-nobres' },
-  
   { simbolo: "57-71", familia:3, grupo:'lantanoides' },
   { simbolo: "89-103", familia: 3, grupo: 'actinoides' },
 ];
+const simboloElementosQuimicosSorteados = []
+var elementoRandomico = ''
 
 function criarDivFamilias(tabelaPeriodoca){
   for(i = 0; i<18;i++){
@@ -137,10 +138,16 @@ function criarDivElementosAParte(elementosAparte){
   const familiaAParte = document.getElementById(elementosAparte)
   familiaAParte.appendChild(novaDivFamilia)
 }
-
 function adicionarEventoClickAElementos(event){
   event.preventDefault()
-  console.log(event.target.textContent.trim())
+  if(event.target.textContent.trim()===elementoRandomico){
+    event.target.style.color = "Black"
+    //sortearNovoElemento()
+    simboloElementosQuimicosSorteados.push(elementoRandomico)
+    document.querySelector('p').innerHTML = elementoRandomico
+    const btnNovoElemento = document.getElementById('novo-elemento-btn')
+    btnNovoElemento.dispatchEvent(new Event('click'))
+  }
 }
 
 function adicionarElementosQuimicosAoDom(){
@@ -155,6 +162,25 @@ function adicionarElementosQuimicosAoDom(){
   }
 }
 
+function sortearNovoElemento(){
+  
+  if(simboloElementosQuimicosSorteados.length === elementosQuimicos.length){
+    return("Todos os elementos já foram sorteados")
+  }else{
+    do{
+      elementoRandomico = elementosQuimicos[Math.floor(Math.random()*elementosQuimicos.length)].simbolo
+    }while(simboloElementosQuimicosSorteados.includes(elementoRandomico))
+  }
+  return(elementoRandomico)
+}
+
+const btnNovoElemento = document.getElementById('novo-elemento-btn')
+btnNovoElemento.addEventListener('click', ()=>{
+  const elementoSorteado = sortearNovoElemento()
+  document.querySelector('p').innerHTML = elementoSorteado
+
+})
+
 //
 const tabelaPeriodoca = document.getElementById("parte-principal")
 criarDivFamilias(tabelaPeriodoca)
@@ -162,6 +188,6 @@ criarDivElementosAParte('lantanoides')
 criarDivElementosAParte('actinoides')
 adicionarElementosQuimicosAoDom()
 
-
+document.getElementById('simbolo')
 
 

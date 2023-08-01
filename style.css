@@ -24,8 +24,20 @@ body{
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; /* Centraliza verticalmente */
     display: flex;
+    color: transparent;
 }
-
+#simbolo{
+    height: 400px;
+    width: 300px;
+    background-color: #98a4a1;
+    margin-top: 20px;
+    font-size: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 3px;
+}
 .familia{
     display: flex;
     flex-direction: column;

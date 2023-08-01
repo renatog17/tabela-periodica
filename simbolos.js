@@ -1,5 +1,5 @@
 const elementosQuimicos = [
-  { simbolo: "H", familia: 1 },
+  { simbolo: "H", familia: 1, grupo:'nao-metais' },
   { simbolo: "He", familia: 18, grupo: 'gases-nobres'},
   { simbolo: "Li", familia: 1, grupo: 'metais-alcalinos' },
   { simbolo: "Be", familia: 2, grupo: 'metais-alcalinos-terrosos' },

@@ -1,27 +1,29 @@
 #tabela-periodica{
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
 }
 #elemento-sorteado{
     display: inline-block;
     margin: 0 auto;
     
 }
-#h{
-    margin-right: 865px;
-}
-#be, #mg{
-    margin-right: 540px;
-}
 .elemento{
     height: 50px;
     width: 50px;
-    display: inline-block;
-    color: transparent;
+    background-color: #1fff9a;
+    margin: 5px;
+    /*color: transparent;*/
+    /*align-items: flex-end;*/
 }
 
-.periodo{
-    display: block;
+.familia{
+    display: flex;
     margin: 5px;
+    flex-direction: column;
+    align-items: flex-end;
+    background-color: bisque;
+    flex-wrap: nowrap;
 }
 
 .nao-metais{
@@ -54,6 +56,7 @@
 .halogenios{
     background-color: #1fff9a;
 }
-#actinoides-id, #lantanoides-id{
-    margin-left: 100px;
+#actinoides, #lantanoides{
+    margin-left: 65px;
+    display: flex;
 }

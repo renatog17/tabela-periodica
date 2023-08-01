@@ -138,20 +138,30 @@ function criarDivElementosAParte(elementosAparte){
   familiaAParte.appendChild(novaDivFamilia)
 }
 
+function adicionarEventoClickAElementos(event){
+  event.preventDefault()
+  console.log(event.target.textContent.trim())
+}
+
+function adicionarElementosQuimicosAoDom(){
+  for(var i= 0;i<elementosQuimicos.length; i++){
+    const novaDivElemento = document.createElement('div')
+    novaDivElemento.innerHTML = elementosQuimicos[i].simbolo
+    novaDivElemento.classList.add('elemento')
+    novaDivElemento.classList.add(elementosQuimicos[i].grupo)
+    const familia = document.getElementById(elementosQuimicos[i].familia)
+    novaDivElemento.addEventListener('click', adicionarEventoClickAElementos) //essa aqui 
+    familia.appendChild(novaDivElemento)
+  }
+}
 
 //
 const tabelaPeriodoca = document.getElementById("parte-principal")
 criarDivFamilias(tabelaPeriodoca)
 criarDivElementosAParte('lantanoides')
 criarDivElementosAParte('actinoides')
+adicionarElementosQuimicosAoDom()
 
 
-for(var i= 0;i<elementosQuimicos.length; i++){
-  const novaDivElemento = document.createElement('div')
-  novaDivElemento.innerHTML = elementosQuimicos[i].simbolo
-  novaDivElemento.classList.add('elemento')
-    novaDivElemento.classList.add(elementosQuimicos[i].grupo)
-    const familia = document.getElementById(elementosQuimicos[i].familia)
-    console.log(familia)
-    familia.appendChild(novaDivElemento)
-}
+
+
